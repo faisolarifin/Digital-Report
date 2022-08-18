@@ -1,0 +1,156 @@
+.btn-primary, .btn-danger, .btn-info, .btn-success, .btn-secondary {
+    transform: translateY(-1px);
+}
+.btn-secondary {
+    background-color: #788393;
+    border-color: #788393;
+    box-shadow: 0 0.125rem 0.25rem 0 rgba(133, 146, 163, 0.4);
+}
+.btn-primary {
+    background-color: #5f61e6;
+    border-color: #5f61e6;
+    box-shadow: 0 0.125rem 0.25rem 0 rgba(105, 108, 255, 0.4);
+}
+.btn-danger {
+    background-color: #e6381a;
+    border-color: #e6381a;
+    box-shadow: 0 0.125rem 0.25rem 0 rgba(255, 62, 29, 0.4);
+}
+.btn-success {
+    background-color: #66c732;
+    border-color: #66c732;
+    box-shadow: 0 0.125rem 0.25rem 0 rgba(113, 221, 55, 0.4);
+}
+.btn-info {
+    background-color: #03c3ec;
+    border-color: #03c3ec;
+    color: #fff;
+    box-shadow: 0 0.125rem 0.25rem 0 rgba(3, 195, 236, 0.4);
+}
+.sidebar-wrapper {
+    width: 200px;
+}
+.sidebar-wrapper .sidebar-header {
+    padding: 1rem 2.5rem 0.5rem !important;
+}
+.sidebar-wrapper .menu {
+    padding: 0 1.5em;
+}
+.sidebar-wrapper .menu .sidebar-title {
+    font-size: 0.9em;
+    text-transform: uppercase;
+    margin-bottom: .2em;
+}
+.sidebar-wrapper .menu .sidebar-link {
+    padding: .5em 1em;
+}
+.sidebar-wrapper .menu .sidebar-item a {
+    font-size: 0.9em;
+}
+.sidebar-wrapper .menu .sidebar-link span {
+    margin-left: 0.3em;
+}
+.sidebar-wrapper .menu .sidebar-item.has-sub .sidebar-link::after {
+    top: 9px;
+}
+.sidebar-wrapper .menu .submenu {
+    padding-left: .3em;
+}
+.sidebar-wrapper .menu .submenu .submenu-item a {
+    padding-top: .5em;
+    padding-bottom: .5em;
+    text-transform: capitalize;
+}
+#main {
+    margin-left: 200px;
+    padding-top: 1em;
+}
+.page-heading h3 {
+    font-size: 1.4em;
+    margin-bottom: 0;
+}
+.page-heading p {
+    margin-bottom: 0.8em;
+}
+@media (min-width: 991.98px) {
+    .navbar-m {
+        margin-left: 200px;
+    }
+}
+.navbar {
+    height: 65px;
+}
+table td {
+    font-size: 0.86em;
+    padding-top: .3em !important;
+    padding-bottom: .3em !important;
+}
+.card .card-header {
+    padding-bottom: .9em;
+}
+.card .dataTable-top {
+    padding: 0 0 .4em 0;
+}
+.navbar a {
+    font-weight: 600 !important;
+    color: #25396f !important;
+    font-size: .9em;
+}
+table .btn {
+    padding: .1em .5em !important;
+}
+.card .card-header .btn {
+    padding: .2em .5em !important;
+    max-height: 27px;
+}
+.dropdown-menu {
+    min-width: 10rem;
+}
+.btn-y {
+    padding: 0;
+    background: transparent;
+    border: 0;
+    line-height: 0;
+}
+#contextmenu {
+    display:none;
+    width: 120px;
+    position:absolute;
+    z-index:100;
+    left:0px;
+    top:0px;
+    background-color:white;
+}
+#contextmenu .list-menu {
+    list-style: none;
+    font-weight:normal;
+    white-space:nowrap;
+    padding: 0;
+    margin: 0;
+}
+#contextmenu .list-menu li {
+    padding: .3em .8em;
+    cursor: pointer;
+    font-size: 0.9em;
+}
+#contextmenu .list-menu i {
+    font-size: .8em;
+    margin-right: .2em;
+}
+#contextmenu .list-menu li:hover {
+    background: #e1e1e1;
+}
+.modal .modal-header .close {
+    padding: 0 .2em;
+}
+.modal .modal-header i, .modal .modal-header svg {
+    font-size: 1.4em;
+}
+.btn-login i {
+    font-size: 0.8em;
+}
+
+
+.navbar .dropdown i {
+    font-size: .78em;
+}
