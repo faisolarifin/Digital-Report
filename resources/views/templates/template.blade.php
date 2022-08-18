@@ -23,7 +23,6 @@
 </head>
 
 <body>
-
     <div id="app">
         <div id="contextmenu" class="shadow-sm rounded">
             <ul class="list-menu">
