@@ -1,4 +1,4 @@
-@extends('templates.template')
+@extends('templates.admin')
 
 @section('content')
     <div class="page-title">
@@ -24,7 +24,8 @@
                 <div class="group">
                     <button class="btn btn-sm btn-outline-success">Export excel</button>
                     <button class="btn btn-sm btn-primary" data-bs-toggle="modal"
-                            data-bs-target="#modal-post">+ Tambah Baru</button>
+                            data-bs-target="#modal-post">+ Tambah Baru
+                    </button>
                 </div>
             </div>
             <div class="card-body">
@@ -41,7 +42,7 @@
                     </tr>
                     </thead>
                     <tbody id="content">
-                        <!--content of table-->
+                    <!--content of table-->
                     </tbody>
                 </table>
             </div>
@@ -79,7 +80,7 @@
     </div>
 
     <script>
-        $(function() {
+        $(function () {
             $.ajaxSetup({
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -90,10 +91,10 @@
                 url: "{{route('api.bread')}}",
                 type: "POST",
                 data: {
-                    periode_id : "{{request()->periode_id}}",
-                    tahun_id : "{{request()->tahun_id}}",
+                    periode_id: "{{request()->periode_id}}",
+                    tahun_id: "{{request()->tahun_id}}",
                 },
-                success: function(res) {
+                success: function (res) {
                     if (res[0] != null) {
                         res = res[0];
                         $('.text-subtitle').text(`Bulan ${res.bulan} ${res.thn}`);
@@ -103,28 +104,28 @@
                 },
             });
 
-            $('#modal-post').on('hide.bs.modal', function(e) {
+            $('#modal-post').on('hide.bs.modal', function (e) {
                 $(this).find('form').attr('id', 'formSimpan');
                 $(this).find('.modal-title').text('Kelola Kas');
                 $('#formSimpan').trigger("reset");
                 $('#formUpdate').trigger("reset");
             })
 
-            $('body').on('submit', '#formSimpan', function(e) {
+            $('body').on('submit', '#formSimpan', function (e) {
                 e.preventDefault()
                 $.ajax({
                     url: "{{route('api.kas.s')}}",
                     type: "POST",
                     dataType: 'json',
                     data: $('#formSimpan').serialize(),
-                    success: function(res) {
+                    success: function (res) {
                         $('#modal-post').modal('hide');
                         showData();
                     },
                 });
             });
 
-            $('body').on('click', '.hapus', function(e) {
+            $('body').on('click', '.hapus', function (e) {
                 var _id = $(this).data('id')
                 if (confirm("Data akan menghapus data?")) {
                     $.ajax({
@@ -134,14 +135,14 @@
                         data: {
                             kode: _id
                         },
-                        success: function(res) {
+                        success: function (res) {
                             showData();
                         },
                     });
                 }
             })
 
-            $('body').on('click', '.edit', function(e) {
+            $('body').on('click', '.edit', function (e) {
                 var _id = $(this).data('id')
 
                 $('#modal-post').modal('show');
@@ -154,7 +155,7 @@
                     url: url,
                     type: "POST",
                     dataType: 'json',
-                    success: function(res) {
+                    success: function (res) {
                         $('#kode').val(res.id_kas);
                         $('#bulan').val(res.id_periode);
                         if (res.tipe == 'kredit') $('#kredit').attr('checked', true)
@@ -166,21 +167,21 @@
                 });
             })
 
-            $('body').on('submit', '#formUpdate', function(e) {
+            $('body').on('submit', '#formUpdate', function (e) {
                 e.preventDefault()
                 $.ajax({
                     url: "{{ route('api.kas.u') }}",
                     type: "PUT",
                     dataType: 'json',
                     data: $('#formUpdate').serialize(),
-                    success: function(res) {
+                    success: function (res) {
                         $('#modal-post').modal('hide');
                         showData();
                     },
                 });
             });
 
-            $('body').on('click', '.hapus-bulan', function(e) {
+            $('body').on('click', '.hapus-bulan', function (e) {
                 if (confirm("Anda akan menghapus semua data periode ini ?")) {
                     $.ajax({
                         url: "{{ route('api.periode.d') }}",
@@ -189,14 +190,14 @@
                         data: {
                             kode: "{{request()->periode_id}}"
                         },
-                        success: function(res) {
+                        success: function (res) {
                             window.location = "{{route('rep.kas')}}";
                         },
                     });
                 }
             })
 
-            $('body').on('click', '.edit-bulan', function(e) {
+            $('body').on('click', '.edit-bulan', function (e) {
                 var _id = "{{request()->periode_id}}"
 
                 $('#modal-post-bulan').modal('show');
@@ -209,7 +210,7 @@
                     url: url,
                     type: "POST",
                     dataType: 'json',
-                    success: function(res) {
+                    success: function (res) {
                         $('#kode-periode').val(res.id_periode)
                         $('#tahun-periode').val(res.id_thn)
                         $('#bulan-periode').val(res.bulan)
@@ -220,14 +221,14 @@
                 });
             });
 
-            $('body').on('submit', '#formBulanUpdate', function(e) {
+            $('body').on('submit', '#formBulanUpdate', function (e) {
                 e.preventDefault()
                 $.ajax({
                     url: "{{ route('api.periode.u') }}",
                     type: "PUT",
                     dataType: 'json',
                     data: $(this).serialize(),
-                    success: function(res) {
+                    success: function (res) {
                         $('#modal-post-bulan').modal('hide');
                         showData();
                     },
@@ -239,10 +240,10 @@
                     url: "{{ route('api.kas.r') }}",
                     type: "POST",
                     dataType: 'json',
-                    data : {
-                        periode_id : "{{request()->periode_id}}"
+                    data: {
+                        periode_id: "{{request()->periode_id}}"
                     },
-                    success: function(res) {
+                    success: function (res) {
                         if (res.saldo == null) return;
                         dom = '';
                         dom += `<tr>
@@ -259,22 +260,22 @@
                                 </td>
                             </tr>`;
                         saldo = parseInt(res.saldo.saldo_awal);
-                        $.each(res.kas, function(index, row) {
+                        $.each(res.kas, function (index, row) {
                             dom += `<tr>
                                 <td>${++index}</td>
                                 <td>${date(row.tanggal)}</td>
                                 <td>${row.kebutuhan}</td>`;
-                                dom += `<td>`;
-                                dom += (row.tipe == 'debit') ? 'Rp. ' + currency(parseInt(row.jml_uang)) : '-';
-                                dom += `</td>`;
-                                dom += `<td>`;
-                                dom += (row.tipe == 'kredit') ? 'Rp. ' + currency(parseInt(row.jml_uang)) : '-';
-                                dom += `</td>`;
-                                dom += `<td>`;
-                                    dom += (row.tipe == 'debit') ?  'Rp. ' + currency(saldo += parseInt(row.jml_uang)) : '';
-                                    dom += (row.tipe == 'kredit') ? 'Rp. ' + currency(saldo -= parseInt(row.jml_uang)) : '';
-                                dom += `</td>`;
-                                dom += `<td>
+                            dom += `<td>`;
+                            dom += (row.tipe == 'debit') ? 'Rp. ' + currency(parseInt(row.jml_uang)) : '-';
+                            dom += `</td>`;
+                            dom += `<td>`;
+                            dom += (row.tipe == 'kredit') ? 'Rp. ' + currency(parseInt(row.jml_uang)) : '-';
+                            dom += `</td>`;
+                            dom += `<td>`;
+                            dom += (row.tipe == 'debit') ? 'Rp. ' + currency(saldo += parseInt(row.jml_uang)) : '';
+                            dom += (row.tipe == 'kredit') ? 'Rp. ' + currency(saldo -= parseInt(row.jml_uang)) : '';
+                            dom += `</td>`;
+                            dom += `<td>
                                     <button class="btn btn-sm btn-info p-2 edit" data-id="${row.id_kas}">Edit</button>
                                     <button class="btn btn-sm btn-danger p-2 hapus" data-id="${row.id_kas}">Hapus</button>
                                 </td>
