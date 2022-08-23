@@ -96,7 +96,7 @@ class Authentikasi extends Controller
                 ]);
                 Auth::login($newUser);
             }
-            return redirect()->route('rep.kas');
+            return redirect()->route('dashboard');
 
         }
         catch (Exception $e) {
