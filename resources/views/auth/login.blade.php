@@ -1,7 +1,7 @@
-@extends('templates.guest')
+@extends('templates.guest', ['title' => 'Login | Digital Report'])
 
 @section('content')
-    <div class="row h-100 align-items-center">
+    <div class="row h-100 justify-content-center align-items-center">
         <div class="col-sm-5 p-4">
             <div class="card">
                 <div class="card-body px-5 pt-5">

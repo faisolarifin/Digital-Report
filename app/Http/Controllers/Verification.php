@@ -26,7 +26,7 @@ class Verification extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/laporan';
+    protected $redirectTo = '/dashboard';
 
     /**
      * Create a new controller instance.
@@ -50,6 +50,6 @@ class Verification extends Controller
     {
         return $request->user()->hasVerifiedEmail()
             ? redirect($this->redirectPath())
-            : view('auth.notice');
+            : view('auth.notify');
     }
 }

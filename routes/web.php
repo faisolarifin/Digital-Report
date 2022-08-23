@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Adminkas;
 use App\Http\Controllers\Authentikasi;
+use App\Http\Controllers\Dashboard;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
@@ -18,12 +19,8 @@ use App\Http\Controllers\Verification;
 |
 */
 
-Route::get('/', function() {
-   return "landing page";
-});
-
 //MANUAL AUTH
-Route::get('/login', [Authentikasi::class, 'formLogin'])->name('login');
+Route::get('/', [Authentikasi::class, 'formLogin'])->name('login');
 Route::post('/login', [Authentikasi::class, 'actionLogin'])->name('login.auth');
 Route::get('/register', [Authentikasi::class, 'formRegister'])->name('register');
 Route::post('/register', [Authentikasi::class, 'actionRegister'])->name('register.auth');
@@ -34,13 +31,13 @@ Route::get('auth/google/callback', [Authentikasi::class, 'handleGoogleCallback']
 //FACEBOOK AUTH
 Route::get('auth/facebook', [Authentikasi::class, 'redirectToFacebook'])->name('auth.fb');
 
-Route::prefix('laporan')->middleware(['laporan', 'verified', 'auth'])->group(function() {
-    Route::prefix('/{thn?}')->group(function() {
-        Route::prefix('/{bln?}')->group(function() {
-            Route::get('/', [Adminkas::class, 'indexDataKas'])->name('rep.kas');
-        });
-    });
+Route::prefix('/laporan/{thn?}/{bln?}')->middleware(['laporan', 'verified', 'auth'])->group(function() {
+    Route::get('/', [Adminkas::class, 'indexDataKas'])->name('rep.kas');
 });
+Route::prefix('/dashboard')->middleware(['laporan', 'verified', 'auth'])->group(function() {
+    Route::get('/', [Dashboard::class, 'indexDashboard'])->name('dashboard');
+});
+
 Route::prefix('users')->middleware(['verified', 'auth'])->group(function() {
     Route::get('/', function() {
         return view('users.index');
@@ -53,6 +50,7 @@ Route::prefix('backup')->middleware(['verified', 'auth'])->group(function() {
 });
 
 Route::prefix('api')->middleware(['verified', 'auth'])->group(function() {
+    Route::get('/dashdata', [Dashboard::class, 'getDataDash'])->name('api.dash');
     Route::post('/bread', [Adminkas::class, 'getBread'])->name('api.bread');
     Route::get('/menutahun', [Adminkas::class, 'getTahun'])->name('api.tahun');
     Route::post('/savekas', [Adminkas::class, 'saveDataKas'])->name('api.kas.s');
