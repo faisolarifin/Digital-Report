@@ -44,15 +44,8 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{route('users')}}">USERS</a>
                         </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">
-                                BACKUP
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="{{route('backup')}}">Export Db</a></li>
-                                <li><a class="dropdown-item" href="#">Import Db</a></li>
-                            </ul>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{route('backup')}}">BACKUP</a>
                         </li>
                     </ul>
                         <div class="dropdown">
