@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="{{ asset('assets/vendors/bootstrap-icons/bootstrap-icons.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/app.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/custom.css') }}">
+    <link rel="icon" href="{{ asset('assets/images/pavicon/money.png') }}" type="image/png"> 
     <style>
         body,html{
             height:100%;
