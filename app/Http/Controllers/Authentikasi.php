@@ -48,7 +48,7 @@ class Authentikasi extends Controller
             'password' => $request->password,
         ];
         if (Auth::attempt($data)) {
-            return redirect()->route('rep.kas');
+            return redirect()->route('dashboard');
         }
         return redirect()->route('login')->with('error', 'Email atau Password Salah!');
     }
