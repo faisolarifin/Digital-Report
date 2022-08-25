@@ -248,7 +248,8 @@
                     dataType: 'json',
                     success: function(res) {
                         if (Object.keys(res).length > 0) {
-                            dom = '<li class="sidebar-title d-flex justify-content-between align-items-center">PERIODE</li>';
+                            dom = '<li class="sidebar-title d-flex justify-content-between align-items-center">' +
+                                '<a href="{{route('rep.kas')}}">PERIODE</a></li>';
                             $.each(res.data, function(key, row) {
                                 dom += `<li class="sidebar-item has-sub">`;
                                 dom += `<a href="#" class='sidebar-link' data-id="${row.id_thn}">

@@ -81,7 +81,7 @@ class Authentikasi extends Controller
     {
         try {
             $user =  Socialite::driver('google')->user();
-            $finduser = User::where('google_id', $user->id)->first();
+            $finduser = User::where('google_id', $user->id)->orWhere('email', $user->email)->first();
 
             if($finduser) {
                 Auth::login($finduser);

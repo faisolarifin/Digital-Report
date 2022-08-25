@@ -4,7 +4,7 @@
     <div class="row h-100 justify-content-center align-items-center">
         <div class="col-sm-5 p-4">
             <div class="bg-light p-5 rounded">
-                <h1>Dashboard</h1>
+                <h3 class="mb-3">Verifikasi Email Anda</h3>
 
                 @if (session('resent'))
                     <div class="alert alert-success" role="alert">
@@ -12,12 +12,12 @@
                     </div>
                 @endif
 
-                Before proceeding, please check your email for a verification link. If you did not receive the email,
-                <form action="{{ route('verification.resend') }}" method="POST" class="d-inline">
+                Link verifikasi telah dikirimkan ke email kamu, Segera cek email dan klik tombol <strong>Verifikasi Email</strong> agar bisa melanjukan ke halaman utama.
+                <form action="{{ route('verification.resend') }}" method="POST" class="text-center mt-3">
                     @csrf
-                    <button type="submit" class="d-inline btn btn-link p-0">
-                        click here to request another
-                    </button>.
+                    <button type="submit" class="btn btn-sm btn-primary">
+                        Kirim Link Verifikasi Lagi.
+                    </button>
                 </form>
             </div>
         </div>
