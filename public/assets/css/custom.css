@@ -149,8 +149,9 @@ table .btn {
 .btn-login i {
     font-size: 0.8em;
 }
-
-
 .navbar .dropdown i {
     font-size: .78em;
+}
+.logo img {
+    height: 1.6rem !important;
 }
