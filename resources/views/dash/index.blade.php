@@ -1,4 +1,4 @@
-@extends('templates.admin')
+@extends('templates.admin', ['title' => 'Dashboard'])
 
 @section('content')
     <section class="row">

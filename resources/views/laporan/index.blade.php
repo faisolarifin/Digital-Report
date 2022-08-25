@@ -1,4 +1,4 @@
-@extends('templates.admin')
+@extends('templates.admin', ['title' => 'Laporan'])
 
 @section('content')
     <div class="page-title">
