@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\LaporanExport;
 use App\Models\{Kas, SaldoPeriode, Tahun};
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 
 class Adminkas extends Controller
 {
@@ -17,6 +19,11 @@ class Adminkas extends Controller
         })->where(['id_thn' => request()->tahun_id])->get();
 
         return view('laporan.index', compact('periode'));
+    }
+
+    public function exportExcel($id=null)
+    {
+        return Excel::download(new LaporanExport($id), 'laporan.xlsx');
     }
 
     public function getBread()

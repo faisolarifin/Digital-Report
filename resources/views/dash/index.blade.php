@@ -78,7 +78,7 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4>Profile Visit</h4>
+                            <h4>Kas Tahunan</h4>
                         </div>
                         <div class="card-body">
                             <div id="chart-1"></div>
@@ -90,7 +90,7 @@
         <div class="col-12 col-lg-3">
             <div class="card">
                 <div class="card-header">
-                    <h4>Debit</h4>
+                    <h4>Debit Pertahun</h4>
                 </div>
                 <div class="card-body">
                     <div id="chart-2"></div>
@@ -98,7 +98,7 @@
             </div>
             <div class="card">
                 <div class="card-header">
-                    <h4>Kredit</h4>
+                    <h4>Kredit Pertahun</h4>
                 </div>
                 <div class="card-body">
                     <div id="chart-3"></div>

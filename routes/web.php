@@ -31,9 +31,15 @@ Route::get('auth/google/callback', [Authentikasi::class, 'handleGoogleCallback']
 //FACEBOOK AUTH
 Route::get('auth/facebook', [Authentikasi::class, 'redirectToFacebook'])->name('auth.fb');
 
-Route::prefix('/laporan/{thn?}/{bln?}')->middleware(['laporan', 'verified', 'auth'])->group(function() {
-    Route::get('/', [Adminkas::class, 'indexDataKas'])->name('rep.kas');
+Route::prefix('/laporan')->middleware(['laporan', 'verified', 'auth'])->group(function() {
+
+    Route::get('export/{id?}', [Adminkas::class, 'exportExcel'])->name('rep.export.xls');
+
+    Route::prefix('/{thn?}/{bln?}')->group(function () {
+        Route::get('/', [Adminkas::class, 'indexDataKas'])->name('rep.kas');
+    });
 });
+
 Route::prefix('/dashboard')->middleware(['laporan', 'verified', 'auth'])->group(function() {
     Route::get('/', [Dashboard::class, 'indexDashboard'])->name('dashboard');
 });

@@ -35,6 +35,12 @@
 
         <nav class="navbar navbar-expand-lg navbar-light bg-white">
             <div class="container-fluid navbar-m">
+                <a class="navbar-brand" href="#">&nbsp;</a>
+                <header class="mb-3">
+                    <a href="#" class="burger-btn d-block d-xl-none">
+                        <i class="bi bi-justify fs-3"></i>
+                    </a>
+                </header>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
@@ -87,11 +93,6 @@
             </div>
         </div>
         <div id="main">
-            <header class="mb-3">
-                <a href="#" class="burger-btn d-block d-xl-none">
-                    <i class="bi bi-justify fs-3"></i>
-                </a>
-            </header>
 
             <div class="page-heading">
                 @yield('content')
@@ -100,7 +101,7 @@
             <footer>
                 <div class="footer clearfix mb-0 text-muted">
                     <div class="float-start">
-                        <p>2021 &copy; Mazer</p>
+                        <p>2021 &copy; DigitalKas</p>
                     </div>
                 </div>
             </footer>

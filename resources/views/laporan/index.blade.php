@@ -10,7 +10,7 @@
             <div class="col-12 col-md-6 order-md-2 order-first">
                 <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                     <ol class="breadcrumb text-capitalize">
-                        <li class="breadcrumb-item"><a href="{{route('rep.kas')}}">Dashboard</a></li>
+                        <li class="breadcrumb-item"><a href="{{route('dashboard')}}">Dashboard</a></li>
                         <li class="breadcrumb-item">Laporan</li>
                     </ol>
                 </nav>
@@ -22,7 +22,7 @@
             <div class="card-header d-flex justify-content-between">
                 <p>Laporan</p>
                 <div class="group">
-                    <button class="btn btn-sm btn-outline-success">Export excel</button>
+                    <a href="{{route('rep.export.xls', request()->periode_id)}}" class="btn btn-sm btn-outline-success">Export excel</a>
                     <button class="btn btn-sm btn-primary" data-bs-toggle="modal"
                             data-bs-target="#modal-post">+ Tambah Baru
                     </button>
