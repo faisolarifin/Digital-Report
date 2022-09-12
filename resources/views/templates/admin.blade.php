@@ -35,7 +35,7 @@
 
         <nav class="navbar navbar-expand-lg navbar-light bg-white">
             <div class="container-fluid navbar-m">
-                <a class="navbar-brand" href="#">&nbsp;</a>
+                <a class="navbar-brand d-lg-none" href="#">&nbsp;</a>
                 <header class="mb-3">
                     <a href="#" class="burger-btn d-block d-xl-none">
                         <i class="bi bi-justify fs-3"></i>

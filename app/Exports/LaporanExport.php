@@ -6,7 +6,6 @@ use App\Helpers\Date;
 use App\Models\Kas;
 use App\Models\SaldoPeriode;
 use Maatwebsite\Excel\Concerns\FromArray;
-use Maatwebsite\Excel\Concerns\WithEvents;
 use Maatwebsite\Excel\Concerns\WithHeadings;
 
 class LaporanExport implements FromArray, WithHeadings

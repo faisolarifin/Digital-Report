@@ -61,10 +61,6 @@
     padding-bottom: .5em;
     text-transform: capitalize;
 }
-#main {
-    margin-left: 200px;
-    padding-top: 1em;
-}
 .page-heading h3 {
     font-size: 1.4em;
     margin-bottom: 0;
@@ -75,6 +71,10 @@
 @media (min-width: 991.98px) {
     .navbar-m {
         margin-left: 200px;
+    }
+    #main {
+        margin-left: 200px;
+        padding-top: 1em;
     }
 }
 .navbar {

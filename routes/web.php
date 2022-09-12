@@ -3,9 +3,8 @@
 use App\Http\Controllers\Adminkas;
 use App\Http\Controllers\Authentikasi;
 use App\Http\Controllers\Dashboard;
-use Illuminate\Support\Facades\Artisan;
+use App\Http\Controllers\Backup;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Verification;
 
 /*
@@ -50,9 +49,11 @@ Route::prefix('users')->middleware(['verified', 'auth'])->group(function() {
     })->name('users');
 });
 Route::prefix('backup')->middleware(['verified', 'auth'])->group(function() {
-    Route::get('/', function() {
-        return view('users.index');
-    })->name('backup');
+    Route::get('/', [Backup::class, 'indexExport'])->name('backup');
+    Route::get('/export', [Backup::class, 'indexExport']);
+    Route::post('/export', [Backup::class, 'exportDb'])->name('backup.export');
+    Route::get('/import', [Backup::class, 'indexImport']);
+    Route::post('/import', [Backup::class, 'importDb'])->name('backup.import');
 });
 
 Route::prefix('api')->middleware(['verified', 'auth'])->group(function() {
