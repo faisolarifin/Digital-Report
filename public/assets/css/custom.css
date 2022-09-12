@@ -77,6 +77,19 @@
         padding-top: 1em;
     }
 }
+@media (max-width: 991.98px) {
+    .navbar-nav {
+        display: flex;
+        flex-direction: row;
+    }
+    .navbar-nav .nav-link {
+        padding: .4rem;
+        padding-top: 0;
+    }
+    .navbar {
+        padding-top: 1.2rem;
+    }
+}
 .navbar {
     height: 65px;
 }

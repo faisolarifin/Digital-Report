@@ -35,38 +35,40 @@
 
         <nav class="navbar navbar-expand-lg navbar-light bg-white">
             <div class="container-fluid navbar-m">
-                <a class="navbar-brand d-lg-none" href="#">&nbsp;</a>
-                <header class="mb-3">
-                    <a href="#" class="burger-btn d-block d-xl-none">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('dashboard') }}">DASHBOARD</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('rep.kas') }}">LAPORAN</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('users')}}">USERS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('backup')}}">BACKUP</a>
+                    </li>
+                </ul>
+                <header class="mb-2 d-flex flex-row align-items-center">
+                    <a href="#" class="burger-btn d-block d-lg-none">
                         <i class="bi bi-justify fs-3"></i>
+                    </a>
+                    <a href="{{route('auth.logout')}}" class="fs-5 ms-2 d-block d-lg-none">
+                        <i class="bi bi-box-arrow-right"></i>
                     </a>
                 </header>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('dashboard') }}">DASHBOARD</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('rep.kas') }}">LAPORAN</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{route('users')}}">USERS</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{route('backup')}}">BACKUP</a>
-                        </li>
-                    </ul>
-                        <div class="dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">
-                                <span class="me-1"> {{Auth::user()->name}}</span>
-                                <img src="{{asset('assets/images/faces/1.jpg')}}" alt="icon" class="rounded-circle" width="30px">
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="#"><i class="bi bi-gear"></i> Konfigurasi</a></li>
-                                <li><a class="dropdown-item" href="{{route('auth.logout')}}"><i class="bi bi-box-arrow-right"></i> Keluar</a></li>
-                            </ul>
-                        </div>
+                    <div class="dropdown ms-auto">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            <span class="me-1"> {{Auth::user()->name}}</span>
+                            <img src="{{asset('assets/images/faces/1.jpg')}}" alt="icon" class="rounded-circle" width="30px">
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="#"><i class="bi bi-gear"></i> Konfigurasi</a></li>
+                            <li><a class="dropdown-item" href="{{route('auth.logout')}}"><i class="bi bi-box-arrow-right"></i> Keluar</a></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </nav>
