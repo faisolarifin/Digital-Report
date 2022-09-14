@@ -168,3 +168,15 @@ table .btn {
 .logo img {
     height: 1.6rem !important;
 }
+.toggler {
+    margin: 0;
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    border-radius: 23px;
+    font-size: 1.2em;
+    text-align: center;
+    z-index: 100;
+    right: 0;
+    top: 0;
+}

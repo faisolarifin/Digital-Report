@@ -8,7 +8,7 @@
                 <p class="text-subtitle text-muted text-capitalize"></p>
             </div>
             <div class="col-12 col-md-6 order-md-2 order-first">
-                <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
+                <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-sm-end">
                     <ol class="breadcrumb text-capitalize">
                         <li class="breadcrumb-item"><a href="{{route('dashboard')}}">Dashboard</a></li>
                         <li class="breadcrumb-item">Laporan</li>
