@@ -79,7 +79,7 @@
         <div class="row flex-what">
             <div class="col-sm-6 d-flex flex-column justify-content-center text-center text-sm-start mb-4 mb-sm-0">
                 <h2 class="mb-3">Apa itu Kaspro?</h2>
-                <p class="mb-3 mb-sm-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores, reprehenderit veniam? Animi architecto dicta distinctio exercitationem minus molestias sint tempore.</p>
+                <p class="mb-3 mb-sm-5">Kaspro adalah sistem digital yang akan membantu anda untuk mempermudah pengelolaan laporan kas, dengan menawarkan menyimpan data pada sistem cloud untuk mengantisipasi kehilangan data. </p>
                 <a href="{{route('dashboard')}}">
                     <button class="btn btn-primary">Coba Sekarang</button>
                 </a>
