@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Exports\LaporanExport;
+use App\Http\Requests\LaporanRequest;
 use App\Models\{Kas, SaldoPeriode, Tahun};
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
@@ -144,7 +145,7 @@ class Adminkas extends Controller
             Kas::where(['id_kas' => $id])->first()
         );
     }
-    public function saveDataKas(Request $request)
+    public function saveDataKas(LaporanRequest $request)
     {
         $saldo = SaldoPeriode::find($request->bulan)->sisa_saldo;
         if ($request->tipe == 'debit') $saldo += $request->jml_uang;

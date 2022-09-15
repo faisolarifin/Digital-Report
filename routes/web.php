@@ -1,9 +1,6 @@
 <?php
 
-use App\Http\Controllers\Adminkas;
-use App\Http\Controllers\Authentikasi;
-use App\Http\Controllers\Dashboard;
-use App\Http\Controllers\Backup;
+use App\Http\Controllers\{Adminkas, Authentikasi, Dashboard, Backup, Home};
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Verification;
 
@@ -19,7 +16,8 @@ use App\Http\Controllers\Verification;
 */
 
 //MANUAL AUTH
-Route::get('/', [Authentikasi::class, 'formLogin'])->name('login');
+Route::get('/', [Home::class, 'landingPage']);
+Route::get('/login', [Authentikasi::class, 'formLogin'])->name('login');
 Route::post('/login', [Authentikasi::class, 'actionLogin'])->name('login.auth');
 Route::get('/register', [Authentikasi::class, 'formRegister'])->name('register');
 Route::post('/register', [Authentikasi::class, 'actionRegister'])->name('register.auth');

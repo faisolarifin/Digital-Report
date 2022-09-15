@@ -7,8 +7,8 @@
                 <h3>Laporan</h3>
                 <p class="text-subtitle text-muted text-capitalize"></p>
             </div>
-            <div class="col-12 col-md-6 order-md-2 order-first">
-                <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-sm-end">
+            <div class="col-12 col-md-6 order-md-2 order-firs d-flex justify-content-sm-end align-items-sm-end">
+                <nav aria-label="breadcrumb" class="breadcrumb-header">
                     <ol class="breadcrumb text-capitalize">
                         <li class="breadcrumb-item"><a href="{{route('dashboard')}}">Dashboard</a></li>
                         <li class="breadcrumb-item">Laporan</li>
@@ -159,11 +159,6 @@
             function currency(x) {
                 return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + '.00';
             }
-            // Simple Datatable
-            let table1 = document.querySelector('#table1');
-            let dataTable = new simpleDatatables.DataTable(table1);
-            $('.dataTable-selector').addClass('form-select-sm')
-            $('.dataTable-input').removeClass('dataTable-input').addClass('form-control').addClass('form-control-sm')
 
             function showMenu() {
 
@@ -323,6 +318,15 @@
                         $('#modal-post').modal('hide');
                         showData();
                     },
+                    error: function( json )
+                    {
+                        if(json.status === 422) {
+                            var errors = json.responseJSON.errors;
+                            $.each(errors, function (key, value) {
+                                console.log(value[0])
+                            });
+                        }
+                    }
                 });
             });
 
@@ -449,10 +453,10 @@
                         dom = '';
                         dom += `<tr>
                                 <td>1</td>
-                                <td>-</td>
+                                <td>&nbsp;</td>
                                 <td>${res.saldo.ket}</td>
-                                <td>Rp. ${currency(parseInt(res.saldo.saldo_awal))}</td>
-                                <td>-</td>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
                                 <td>Rp. ${currency(parseInt(res.saldo.saldo_awal))}</td>
                                 <td>
                                     <button class="btn btn-sm btn-info p-2 edit-bulan">Edit</button>
@@ -483,6 +487,9 @@
                             </tr>`;
                         })
                         $('#content').html(dom);
+
+                        // Datatable
+                        $('#table1').DataTable();
                     },
                 });
             }

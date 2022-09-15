@@ -30,8 +30,11 @@
 .sidebar-wrapper {
     width: 200px;
 }
+.sidebar-wrapper .menu {
+    margin-top: 0;
+}
 .sidebar-wrapper .sidebar-header {
-    padding: 1rem 2.5rem 0.5rem !important;
+    padding: .5rem 2.5rem 0.5rem !important;
 }
 .sidebar-wrapper .menu {
     padding: 0 1.5em;
@@ -178,5 +181,5 @@ table .btn {
     text-align: center;
     z-index: 100;
     right: 0;
-    top: 0;
+    top: 21px;
 }

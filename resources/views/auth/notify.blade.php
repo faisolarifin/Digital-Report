@@ -1,4 +1,4 @@
-@extends('templates.guest', ['title' => 'Verify | DigitalKas'])
+@extends('templates.guest', ['title' => 'Verify'])
 
 @section('content')
     <div class="row h-100 justify-content-center align-items-center">
