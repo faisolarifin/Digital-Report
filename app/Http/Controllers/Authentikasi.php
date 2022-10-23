@@ -80,7 +80,7 @@ class Authentikasi extends Controller
     public function handleGoogleCallback()
     {
         try {
-            $user =  Socialite::driver('google')->user();
+            $user =  Socialite::driver('google')->stateless()->user();
             $finduser = User::where('google_id', $user->id)->orWhere('email', $user->email)->first();
 
             if($finduser) {
